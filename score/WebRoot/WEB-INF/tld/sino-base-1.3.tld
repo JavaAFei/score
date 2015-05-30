@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE taglib
+        PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+        "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+<taglib>
+	<tlib-version>1.3</tlib-version>
+	<jsp-version>1.2</jsp-version>
+	<short-name>domain</short-name>
+	<uri>http://base.sinovatech.com/tags-base</uri>
+
+	<!-- 分页标签 -->
+	<tag>
+		<name>pagination</name>
+		<tag-class>com.sinovatech.base.tag.SignPagination</tag-class>
+		<body-content>empty</body-content>
+		<description>
+			<![CDATA[
+            	分页标签
+            ]]>
+		</description>
+		<attribute>
+			<name>limit</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[
+            	Limit 对象
+            ]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>action</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+			<![CDATA[
+            	翻页提交地址
+            ]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description>
+				<![CDATA[
+            	展示样式
+           		 ]]>
+			</description>
+		</attribute>
+		
+		<attribute>
+			<name>paras</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[
+					分页事件提交时，所带的其它分页信息参数(会自动加到URL后面)，如 area=0001&level=1
+           		 ]]>
+			</description>
+		</attribute>
+		
+		
+		<attribute>
+			<name>showAttr</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description>
+				<![CDATA[设置分页标签显示的属性，默认为 BTANPFEX,
+            		B为第X条至X条、T为共x条,A为在第X页,N为下一页,P为上一页,F为首页,E为末面 X为跳到第X页
+           		 ]]>
+			</description>
+		</attribute>
+		
+		
+		<attribute>
+			<name>nextIcon</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[	
+					“下一页”图标展示 src，缺省为文字 "下一页" 
+           		 ]]>
+			</description>
+		</attribute>
+		
+		<attribute>
+			<name>previousIcon</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[
+				“上一页”图标展示 src，缺省为文字 "上一页" 
+           		 ]]>
+			</description>
+		</attribute>
+		
+		<attribute>
+			<name>firstIcon</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>
+				<![CDATA[
+					“第一页”图标展示 src，缺省为文字 "第一页" 
+           		 ]]>
+			</description>
+		</attribute>
+		
+		<attribute>
+			<name>endIcon</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description>
+				<![CDATA[
+					“末页”图标展示 src，缺省为文字 "末页" 
+           		 ]]>
+			</description>
+		</attribute>
+	</tag>
+	<!-- BMS 权限控制标签 -->
+
+	<!-- URL 外包含标签 -->
+	<tag>
+		<name>urlInclude</name>
+		<tag-class>com.sinovatech.base.tags.URLInclude</tag-class>
+		<body-content>empty</body-content>
+		<description>
+				<![CDATA[
+	            	外部资源包含标签
+	            ]]>
+		</description>
+	
+		<attribute>
+			<name>url</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+						<description>
+				<![CDATA[
+					设置分页标签显示的属性，默认为 BTANPFEX,
+            		B为第X条至X条、T为共x条,A为在第X页,N为下一页,P为上一页,F为首页,E为末面 X为跳到第X页
+           		 ]]>
+			</description>
+		</attribute>
+		<attribute>
+			<name>throwsEx</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+						<description>
+				<![CDATA[设置分页标签显示的属性，默认为 BTANPFEX,
+            		B为第X条至X条、T为共x条,A为在第X页,N为下一页,P为上一页,F为首页,E为末面 X为跳到第X页
+           		 ]]>
+			</description>
+		</attribute>
+	</tag>
+	
+</taglib>

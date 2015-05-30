@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd" [
+<!ENTITY contextInclude SYSTEM "org/springframework/web/context/WEB-INF/contextInclude.xml">
+]>
+
+<beans>
+    <!-- Spring Bean -->
+	<bean id="adminDao" class="com.ghy.core.dao.AdminDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="adminServiceBase" class="com.ghy.core.service.AdminService">
+		<property name="adminDao" ref="adminDao"></property>
+	</bean>
+	
+	<!-- parent为transactionBese，表示支持事务 -->
+	<bean id="adminService" parent="transactionBese">
+		<property name="target" ref="adminServiceBase"></property>
+	</bean>
+	
+    <!-- Spring Bean -->
+	<bean id="studentDao" class="com.ghy.core.dao.StudentDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="studentServiceBase" class="com.ghy.core.service.StudentService">
+		<property name="studentDao" ref="studentDao"></property>
+	</bean>
+	
+	<!-- parent为transactionBese，表示支持事务 -->
+	<bean id="studentService" parent="transactionBese">
+		<property name="target" ref="studentServiceBase"></property>
+	</bean>
+
+    <!-- Spring Bean -->
+	<bean id="scoreDao" class="com.ghy.core.dao.ScoreDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="scoreServiceBase" class="com.ghy.core.service.ScoreService">
+		<property name="scoreDao" ref="scoreDao"></property>
+	</bean>
+	
+	<!-- parent为transactionBese，表示支持事务 -->
+	<bean id="scoreService" parent="transactionBese">
+		<property name="target" ref="scoreServiceBase"></property>
+	</bean>
+
+	<bean id="showOptionDao" class="com.ghy.core.dao.ShowOptionDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="showOptionServiceBase" class="com.ghy.core.service.ShowOptionService">
+		<property name="showOptionDao" ref="showOptionDao"></property>
+	</bean>
+	
+	<!-- parent为transactionBese，表示支持事务 -->
+	<bean id="showOptionService" parent="transactionBese">
+		<property name="target" ref="showOptionServiceBase"></property>
+	</bean>
+</beans>

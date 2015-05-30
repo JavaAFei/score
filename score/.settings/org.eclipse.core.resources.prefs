@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+encoding//WebRoot/index.jsp=UTF-8
+encoding//WebRoot/js/validator.js=UTF-8
+encoding//src/com/ghy/common/orm/hibernate/HibernateDao.java=UTF-8
+encoding//src/com/ghy/common/orm/hibernate/SimpleHibernateDao.java=UTF-8
+encoding//src/com/ghy/common/util/reflection/ReflectionUtils.java=UTF-8
