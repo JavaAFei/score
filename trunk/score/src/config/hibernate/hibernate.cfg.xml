@@ -1,0 +1,14 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- 引入需要映射的类 -->
+        <mapping class="com.jialin.entity.User"/>
+        <mapping class="com.ghy.core.entity.Admin"/>
+        <mapping class="com.ghy.core.entity.Student"/>
+        <mapping class="com.ghy.core.entity.Score"/>
+        <mapping class="com.ghy.core.entity.ShowOption"/>
+    </session-factory>
+</hibernate-configuration>

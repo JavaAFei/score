@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="score"
+  id="myeclipse.1429100575033"
+  context-root="/score"
+  j2ee-spec="6.0"
+  archive="score.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
