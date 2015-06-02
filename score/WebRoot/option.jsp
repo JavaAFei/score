@@ -55,7 +55,7 @@ function optionFormat(value,row,index){
   </head>
   <body>
   	配置上传的列是否显示</br>
-  	<table id="dg" style="width:300px;height:400px  ;" >
+  	<table id="dg" style="width:500px;" >
 		<thead>
 			<tr class = "dgtr"> 
 				<th data-options="field:'columnName'">列名称</th>

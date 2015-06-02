@@ -7,4 +7,4 @@
 <link rel="stylesheet" type="text/css" href="${cssPath}/easyui.css">
 <link rel="stylesheet" type="text/css" href="${cssPath}/icon.css">
 <link rel="stylesheet" type="text/css" href="${cssPath}/demo.css">
-<link rel="stylesheet" type="text/css" href="${cssPath}/public.css">
+<!-- <link rel="stylesheet" type="text/css" href="${cssPath}/public.css"> -->
