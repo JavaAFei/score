@@ -66,6 +66,7 @@ $(function() {
   </head>  
   <body>
     <div class="page-container">
+    		<h1>山东劳动职业技术学院</h1></br>
             <h1>成绩查询系统登录</h1>
             <form action="" method="post"  id="loginForm">
                 <input type="text" name="name" class="username" placeholder="请输入姓名"/>
@@ -79,7 +80,7 @@ $(function() {
 	            	<p style="width: 330px;">数据更新于<fmt:formatDate value="${lastUpdateTime}" pattern="yyyy年MM月dd日HH点mm分" /></p>
 	            	<p></p> 
 	            </c:if>
-                <p>山东劳动职业技术学院</p>
+                <p></p>
             </div>
         </div>
   </body>

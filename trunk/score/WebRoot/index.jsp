@@ -51,6 +51,7 @@ jQuery(document).ready(function() {
   </head>  
   <body>
     <div class="page-container">
+            <h1>山东劳动职业技术学院</h1></br>
             <h1>成绩录入系统登录</h1>
             <form action="admin/login" method="post">
                 <input type="text" name="loginCode" class="username" placeholder="请输入登录账号"/>
@@ -62,7 +63,6 @@ jQuery(document).ready(function() {
                 <div class="error"><span>+</span></div>
             </form>
             <div class="connect">
-                <p>山东劳动职业技术学院</p>
             </div>
         </div>
   </body>
