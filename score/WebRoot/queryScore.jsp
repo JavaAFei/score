@@ -52,10 +52,6 @@ $(function(){
 						<td class="align_r"> 考号：</td>
 						<td class="align_l">${sessionScope.studentObj.examNo }</td>
 					</tr>
-					<tr class="subjet">
-						<td class="align_r">科目：</td>
-						<td class="align_l">结果</td>
-					</tr>
 					<c:forEach items="${scoreList}" var="score">
 						<tr>
 							<td class="align_r">${score.name }：</td>
