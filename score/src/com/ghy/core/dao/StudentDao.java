@@ -3,6 +3,7 @@ package com.ghy.core.dao;
 import java.util.Date;
 import java.util.List;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Query;
 import com.ghy.core.entity.Student;
@@ -48,6 +49,16 @@ public class StudentDao    implements IStudentDao{
 			 this.sessionFactory.getCurrentSession().save(stu);
 		}
 	}
+
+	@Override
+	public void delete(Student student) {
+		 this.sessionFactory.getCurrentSession().delete(student);
+	}
 	
-	 
+	@Override
+	public void deleteBySql(StringBuffer sql) {
+		Session s = this.sessionFactory.getCurrentSession();
+		Query q = s.createSQLQuery(sql.toString());
+		q.executeUpdate();
+	}
 }

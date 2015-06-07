@@ -88,6 +88,7 @@ function uploadExcel(){
 			      $.each(anArray,function(n,value) {
 		    		$(".dgtr").append("<th data-options=\"field:'"+value+"' \">"+value+"</th>");
 			     });
+			     $(".dgtr").append("<th field=\"23\" formatter=\"delFormat\" width=\"100\">操作</th>");
 	          } 
 		     //初始化表格
 		     initDataGrid();
@@ -132,6 +133,51 @@ $.extend($.fn.datagrid.methods, {
 		});
 	}
 });
+
+//初始化单个删除按钮
+function delFormat(value,row,index){
+    var res = "<a name='delete' href='javascript:void(0);' class=\'easyui-linkbutton\'  iconCls=\'icon-cancel\'  onclick=\"deleteById('"+row.studentId+"','1');\" title='删除'>删除</a>"; 
+    return res;
+ };
+ function deleteById(studentId){
+ 	$.messager.confirm('提示', '你确定删除这条成绩吗?', function(r){
+				if (!r){
+					return;
+				}
+			 	$.ajax({
+			 		url:"stu/del",
+			 		type:'POST',
+			 		data:{studentId:studentId},
+			 		async:false,
+			 		success:function(data){
+			 			if(data=='0'){
+			 				$('#dg').datagrid('reload');
+			 			}else{
+			 				$.messager.alert('提示','删除失败，请刷新后重试或联系管理员！');
+			 			}
+			 		}
+			 	})
+	});	
+ }
+  function deleteAll(){
+ 	$.messager.confirm('提示', '你确定清空全部成绩吗?', function(r){
+		if (!r){
+			return;
+		}
+	 	$.ajax({
+	 		url:"stu/delAll",
+	 		type:'POST',
+	 		async:false,
+	 		success:function(data){
+	 			if(data=='0'){
+	 				$('#dg').datagrid('reload');
+	 			}else{
+	 				$.messager.alert('提示','删除失败，请刷新后重试或联系管理员！');
+	 			}
+	 		}
+	 	})
+	});	
+ }
 </script>
 <html>
   <head>
@@ -165,7 +211,8 @@ $.extend($.fn.datagrid.methods, {
 		<input id="examNoS" style="line-height:26px;border:1px solid #ccc">
 		<span>姓名：</span>
 		<input id="nameS" style="line-height:26px;border:1px solid #ccc">
-		<a href="javascript:void(0)" class="easyui-linkbutton" plain="true" onclick="doSearch()">查询</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton"  iconCls="icon-search" onclick="doSearch()">查询</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton"  iconCls="icon-cancel" onclick="deleteAll()">清空成绩</a>
 	</div>
   </body>
 </html>

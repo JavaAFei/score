@@ -13,4 +13,8 @@ public abstract interface IStudentService {
 
 	void saveAll(List<Student> stuList);
 
+	void deleteById(String studentId);
+
+	void deleteAll();
+
 }

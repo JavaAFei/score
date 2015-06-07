@@ -11,5 +11,8 @@ public abstract interface IScoreDao {
 	List<Score> getScoreByStudentId(String studentId);
 
 	Map<String, Object> getStudentAndScores(Map<String, String> parmMap);
-	
+
+	void deleteBySql(StringBuffer sql);
+
+
 }

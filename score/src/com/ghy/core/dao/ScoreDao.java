@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.hibernate.SQLQuery;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Query;
 
@@ -28,7 +29,7 @@ public class ScoreDao implements IScoreDao{
 	@Override
 	public List<Score> getScoreByStudentId(String studentId) {
 		Query query = this.sessionFactory.getCurrentSession().createQuery
-				(" from Score t where   studentId = :studentId AND EXISTS (SELECT '' FROM ShowOption t2 WHERE t2.columnName = t.name AND t2.isShow = '0')  ORDER BY t.sort");
+				(" from Score t where   studentId = :studentId AND NOT EXISTS (SELECT '' FROM ShowOption t2 WHERE t2.columnName = t.name AND t2.isShow = '1')  ORDER BY t.sort");
 		query.setString("studentId", studentId);
 		return query.list();
 	}
@@ -94,5 +95,14 @@ public class ScoreDao implements IScoreDao{
 		resultMap.put("rows", rowsList);
 		return resultMap;
 	}
-	
+
+	@Override
+	public void deleteBySql(StringBuffer sql) {
+		Session s = this.sessionFactory.getCurrentSession();
+		Query q = s.createSQLQuery(sql.toString());
+		q.executeUpdate();
+		
+	}
+
+
 }
