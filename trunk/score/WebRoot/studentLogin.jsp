@@ -68,7 +68,7 @@ $(function() {
     <div class="page-container">
     		<h1>山东劳动职业技术学院</h1></br>
             <h1>成绩查询系统登录</h1>
-            <form action="" method="post"  id="loginForm">
+            <form action="" method="post"  id="loginForm" class="form-2">
                 <input type="text" name="name" class="username" placeholder="请输入姓名"/>
                 <input type="text" name="examNo" class="password" placeholder="请输入考号"/>
                 	</br></br><span id = "result"></span>

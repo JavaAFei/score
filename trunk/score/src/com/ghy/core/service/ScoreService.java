@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.ghy.core.dao.IScoreDao;
 import com.ghy.core.entity.Score;
+import com.ghy.core.entity.Student;
 public class ScoreService implements IScoreService{
 
 	private IScoreDao scoreDao;

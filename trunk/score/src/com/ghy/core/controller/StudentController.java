@@ -21,6 +21,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import com.ghy.common.excel.PoiReadExcelBean;
 import com.ghy.common.excel.PoiReadExcelBeanImpl;
 import com.ghy.common.util.Consts;
+import com.ghy.common.util.GlobalConfig;
 import com.ghy.common.util.JsonUtils;
 import com.ghy.common.util.StringUtil;
 import com.ghy.core.entity.Admin;
@@ -40,7 +41,7 @@ public class StudentController {
 	private IStudentService studentService;
 	@Resource(name="scoreService")
 	private IScoreService scoreService;
-	private static String subPath = "D:/";
+	private static String subPath = GlobalConfig.getProperty("path", "uploadPath");
 	/**
 	 * 登录前的方法
 	 * @param admin
@@ -72,7 +73,7 @@ public class StudentController {
 			PrintWriter writer = response.getWriter();
 			List<Student> studentList = studentService.getStudent(student.getName(),student.getExamNo());
 			if(studentList == null || studentList.size() == 0){
-				writer.write("用户名或密码错误，请重新输入!");
+				writer.write("登录信息输入错误或系统数据还未更新    如有疑问请及时联系0531-87196580!");
 			}else{
 				student = studentList.get(0);
 				request.getSession().setAttribute(Consts.SESSION_STUDENT, student);
@@ -114,7 +115,11 @@ public class StudentController {
 		return "/queryScore";
 	}
 
-
+	/**
+	 * 查询全部的学生和成绩信息
+	 * @param request
+	 * @param response
+	 */
 	@RequestMapping({"queryAll"})
 	public void queryStudentAndScores( HttpServletRequest request,HttpServletResponse response) {
 		try {
@@ -138,6 +143,41 @@ public class StudentController {
 		}
 	}
 	
+	/**
+	 * 删除单个学生和对应成绩
+	 * 
+	 */
+	@RequestMapping({"del"})
+	public void delete( HttpServletRequest request,HttpServletResponse response,String studentId) {
+		try {
+			studentService.deleteById(studentId);
+			PrintWriter writer = response.getWriter();
+			writer.write("0");
+			writer.flush();
+			writer.close();
+			writer = null;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * 删除全部学生和对应成绩
+	 * 
+	 */
+	@RequestMapping({"delAll"})
+	public void deleteAll( HttpServletRequest request,HttpServletResponse response) {
+		try {
+			studentService.deleteAll();
+			PrintWriter writer = response.getWriter();
+			writer.write("0");
+			writer.flush();
+			writer.close();
+			writer = null;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	/**
 	 * 上传学生及成绩
 	 * @param request 
@@ -229,7 +269,11 @@ public class StudentController {
 		return "/main";
     }
 
-
+	/**
+	 * 保存excel 
+	 * @param request
+	 * @return
+	 */
 	private   String  saveExcel(HttpServletRequest request) {
 		try {
 			CommonsMultipartResolver multipartResolver  = new CommonsMultipartResolver(request.getSession().getServletContext());

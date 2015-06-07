@@ -13,5 +13,9 @@ public abstract interface IStudentDao {
 	Date getLastUpdateTime();
 
 	void saveAll(List<Student> stuList);
+
+	void delete(Student student);
+
+	void deleteBySql(StringBuffer sql1);
 	
 }
