@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,7 +31,19 @@ public class AdminController {
 	private IAdminService adminService;
 	@Resource(name="showOptionService")
 	private IShowOptionService showOptionService;
+	private static Logger logger = Logger.getLogger(AdminController.class);  
+	  
 	
+	
+	 public static void main(String[] args) {
+		 	//PropertyConfigurator.configure("log4j.properties");
+	        // 记录debug级别的信息  
+	        logger.debug("This is debug message.");  
+	        // 记录info级别的信息  
+	        logger.info("This is info message.");  
+	        // 记录error级别的信息  
+	        logger.error("This is error message.");  
+	    }  
 	/**
 	 * 管理员登录方法
 	 * @param admin
@@ -38,6 +52,8 @@ public class AdminController {
 	 */
 	@RequestMapping({"login"})
 	public String adminLogin(@ModelAttribute("admin") Admin admin,HttpServletRequest request){
+		
+		
 		try {
 		
 		if(request.getSession().getAttribute(Consts.SESSION_ADMIN) != null && StringUtils.isBlank(admin.getLoginCode()) && StringUtils.isBlank(admin.getPassword())){
